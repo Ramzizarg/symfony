@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Password Reset{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 400px;
+            background-color: #fff;
+        }
+
+        .card-body {
+            padding: 70px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1877f2;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: #1877f2;
+            border: none;
+            border-radius: 5px;
+            padding: 12px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .btn-primary:hover {
+            background-color: #11569f; /* Darker shade for hover */
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+            <h1 class="h3 mb-3 font-weight-normal">Hi!</h1>
+
+            <p>To reset your password, please visit the following link:</p>
+
+            <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+
+            <p>This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+
+            <p>Cheers!</p>
+
+            <a href="{{ path('app_login') }}" class="btn btn-primary">Back to Login</a>
+        </div>
+    </div>
+{% endblock %}

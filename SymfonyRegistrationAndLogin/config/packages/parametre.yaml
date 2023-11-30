@@ -1,0 +1,5 @@
+# app/config/parameters.yaml
+
+parameters:
+    recaptcha_site_key: '6LeL7hApAAAAAK76BvJTPlIgg18U77_j7syOmDif'
+    recaptcha_secret_key: 'your_recaptcha_secret_key'
